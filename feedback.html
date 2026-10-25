@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Academic Course Feedback - StudentHub">
+  <title>Student Feedback &amp; Course Rating | StudentHub</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="icon" href="data:,">
+</head>
+<body>
+  <!-- Accessibility: Skip to Content -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Navigation Header -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo" aria-label="StudentHub Homepage">
+        🎓 Student<span>Hub</span>
+        <span class="brand-badge">CHARUSAT</span>
+      </a>
+
+      <button class="hamburger" id="nav-toggle" aria-label="Toggle navigation menu">☰</button>
+
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="events.html" class="nav-link">Events</a></li>
+          <li><a href="faq.html" class="nav-link">FAQ</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="feedback.html" class="nav-link active">Feedback</a></li>
+          <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+          <li><a href="admin.html" class="nav-link" style="color: var(--secondary-color); font-weight:700;">Admin</a></li>
+          <li><a href="login.html" class="btn btn-outline btn-sm">Sign In</a></li>
+          <li><a href="register.html" class="btn btn-primary btn-sm">Register</a></li>
+        </ul>
+      </nav>
+
+      <div class="theme-switch-wrapper" style="display: flex; align-items: center; gap: 0.5rem; margin-left: 1rem;">
+        <button id="theme-toggle" class="theme-btn" aria-label="Toggle Dark and Light Mode" title="Toggle theme">🌙</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Body -->
+  <main id="main-content" class="container">
+    <section style="margin-bottom: 2rem;">
+      <div style="max-width: 650px; margin: 0 auto;">
+        <div style="text-align: center; margin-bottom: 2rem;">
+          <h1 style="color: var(--primary-color); margin-bottom: 0.5rem;">Academic Course Feedback</h1>
+          <p style="color: var(--text-muted);">Share your feedback on laboratory experiments, framework tutorials, and learning outcomes.</p>
+        </div>
+
+        <div id="feedback-alert" class="alert alert-success" style="display: none;">
+          <span>✅ Thank you! Your feedback has been recorded.</span>
+        </div>
+
+        <div class="card">
+          <form id="feedbackForm" method="POST" action="feedback.php" onsubmit="handleFeedbackSubmit(event)">
+            <div class="form-group">
+              <label class="form-label" for="student_name">Your Name / Student ID</label>
+              <input type="text" id="student_name" name="student_name" class="form-control" required placeholder="e.g., 23IT001 or Divyakumar">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="course_code">Subject / Framework Module</label>
+              <select id="course_code" name="course_code" class="form-control" required>
+                <option value="ITUE203 - Web Development Frameworks">ITUE203 - Web Development Frameworks</option>
+                <option value="HTML5 & Accessibility Practical">HTML5 &amp; Accessibility Practical</option>
+                <option value="JavaScript DOM & Event Handling">JavaScript DOM &amp; Event Handling</option>
+                <option value="PHP Server-Side & File Storage">PHP Server-Side &amp; File Storage</option>
+                <option value="MySQL Database & PDO/MySQLi">MySQL Database &amp; PDO/MySQLi</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Overall Experience Rating</label>
+              <div style="display: flex; gap: 1rem; align-items: center; margin-top: 0.5rem; flex-wrap: wrap;">
+                <label><input type="radio" name="rating" value="5" checked> ⭐⭐⭐⭐⭐ (Excellent)</label>
+                <label><input type="radio" name="rating" value="4"> ⭐⭐⭐⭐ (Very Good)</label>
+                <label><input type="radio" name="rating" value="3"> ⭐⭐⭐ (Good)</label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="comments">Suggestions &amp; Comments</label>
+              <textarea id="comments" name="comments" class="form-control" rows="4" placeholder="What did you learn? Any areas for improvement?"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-secondary" style="width: 100%;">Submit Feedback</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="footer">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1.5rem; text-align: left; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border-color); margin-bottom: 1rem;">
+      <div style="flex: 1; min-width: 250px;">
+        <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">StudentHub Portal</h4>
+        <p style="font-size: 0.85rem; color: var(--text-muted);">
+          Developed for ITUE203: Web Development Frameworks practical curriculum, Faculty of Technology &amp; Engineering (FTE / CSPIT / DEPSTAR), CHARUSAT.
+        </p>
+      </div>
+      <div style="flex: 1; min-width: 160px;">
+        <h4 style="margin-bottom: 0.5rem;">Quick Links</h4>
+        <ul style="list-style: none; font-size: 0.85rem; line-height: 2;">
+          <li><a href="events.html" style="color: inherit; text-decoration: none;">Campus Events</a></li>
+          <li><a href="faq.html" style="color: inherit; text-decoration: none;">Knowledge Base &amp; FAQ</a></li>
+          <li><a href="contact.html" style="color: inherit; text-decoration: none;">Support &amp; Helpdesk</a></li>
+          <li><a href="feedback.html" style="color: inherit; text-decoration: none;">Feedback Form</a></li>
+        </ul>
+      </div>
+      <div style="flex: 1; min-width: 200px;">
+        <h4 style="margin-bottom: 0.5rem;">Campus Location</h4>
+        <p style="font-size: 0.85rem; color: var(--text-muted);">
+          CHARUSAT Campus, 139, Changa, Dist. Anand, Gujarat 388421.<br>
+          Email: info@charusat.edu.in
+        </p>
+      </div>
+    </div>
+    <p>&copy; 2026-27 CHARUSAT. All rights reserved. Built with Semantic HTML5, CSS3, JavaScript ES6+, PHP &amp; MySQL.</p>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    function handleFeedbackSubmit(e) {
+      document.getElementById('feedback-alert').style.display = 'flex';
+      setTimeout(() => {
+        document.getElementById('feedbackForm').reset();
+      }, 1500);
+    }
+  </script>
+</body>
+</html>

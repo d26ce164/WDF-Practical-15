@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Student Registration - StudentHub Portal">
+  <title>Student Registration | StudentHub</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="icon" href="data:,">
+</head>
+<body>
+  <!-- Accessibility: Skip to Content -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Navigation Header -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo" aria-label="StudentHub Homepage">
+        🎓 Student<span>Hub</span>
+        <span class="brand-badge">CHARUSAT</span>
+      </a>
+
+      <button class="hamburger" id="nav-toggle" aria-label="Toggle navigation menu">☰</button>
+
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="events.html" class="nav-link">Events</a></li>
+          <li><a href="faq.html" class="nav-link">FAQ</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="feedback.html" class="nav-link">Feedback</a></li>
+          <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+          <li><a href="admin.html" class="nav-link" style="color: var(--secondary-color); font-weight:700;">Admin</a></li>
+          <li><a href="login.html" class="btn btn-outline btn-sm">Sign In</a></li>
+          <li><a href="register.html" class="btn btn-primary btn-sm">Register</a></li>
+        </ul>
+      </nav>
+
+      <div class="theme-switch-wrapper" style="display: flex; align-items: center; gap: 0.5rem; margin-left: 1rem;">
+        <button id="theme-toggle" class="theme-btn" aria-label="Toggle Dark and Light Mode" title="Toggle theme">🌙</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Body -->
+  <main id="main-content" class="container">
+    <div class="form-card">
+      <div style="text-align: center; margin-bottom: 1.5rem;">
+        <span class="brand-badge">Practical 5 &amp; 9</span>
+        <h1 style="color: var(--primary-color); margin-top: 0.5rem; font-size: 1.8rem;">Student Registration</h1>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">Create your StudentHub account with client-side &amp; server-side validation.</p>
+      </div>
+
+      <div id="registerSuccessAlert" class="alert alert-success" style="display: none;">
+        <span id="registerSuccessMsg">Registration completed successfully!</span>
+      </div>
+
+      <form id="registrationForm" method="POST" action="register.php" onsubmit="return validateFrontendForm(event)" novalidate>
+        <div class="form-group">
+          <label class="form-label" for="full_name">Full Name *</label>
+          <input type="text" id="full_name" name="full_name" class="form-control" required placeholder="e.g., Divyakumar Shukla">
+          <span id="name-error" class="error-text"></span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="username">Username (Alphanumeric) *</label>
+          <input type="text" id="username" name="username" class="form-control" required placeholder="e.g., divya2026">
+          <span id="username-error" class="error-text"></span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="email">University Email *</label>
+          <input type="email" id="email" name="email" class="form-control" required placeholder="id@charusat.edu.in">
+          <span id="email-error" class="error-text"></span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="phone">Mobile Phone (10 Digits) *</label>
+          <input type="tel" id="phone" name="phone" class="form-control" required placeholder="9876543210">
+          <span id="phone-error" class="error-text"></span>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div class="form-group">
+            <label class="form-label" for="course">Department *</label>
+            <select id="course" name="course" class="form-control" required>
+              <option value="Information Technology">Information Technology</option>
+              <option value="Computer Engineering">Computer Engineering</option>
+              <option value="Computer Science">Computer Science</option>
+              <option value="AI & ML">AI &amp; ML</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="year">Academic Year *</label>
+            <select id="year" name="year" class="form-control" required>
+              <option value="1">1st Year</option>
+              <option value="2" selected>2nd Year (Semester 3)</option>
+              <option value="3">3rd Year</option>
+              <option value="4">4th Year</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Gender</label>
+          <div style="display: flex; gap: 1.5rem; margin-top: 0.35rem;">
+            <label><input type="radio" name="gender" value="Male" checked> Male</label>
+            <label><input type="radio" name="gender" value="Female"> Female</label>
+            <label><input type="radio" name="gender" value="Other"> Other</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="password">Password (Min 8 chars, 1 uppercase, 1 digit, 1 special char) *</label>
+          <input type="password" id="password" name="password" class="form-control" required oninput="evaluatePasswordStrength(this.value)">
+          <!-- Password Strength Meter -->
+          <div style="margin-top: 0.5rem; background: #e2e8f0; height: 6px; border-radius: 3px; overflow: hidden;">
+            <div id="password-strength-bar" style="width: 0%; height: 100%; transition: width 0.3s, background-color 0.3s;"></div>
+          </div>
+          <span id="password-strength-label" style="font-size: 0.8rem; color: var(--text-muted); display: block; margin-top: 0.25rem;">Strength: Empty</span>
+          <span id="password-error" class="error-text"></span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="confirm_password">Confirm Password *</label>
+          <input type="password" id="confirm_password" name="confirm_password" class="form-control" required>
+          <span id="confirm-password-error" class="error-text"></span>
+        </div>
+
+        <div class="form-group">
+          <label style="display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.88rem; cursor: pointer;">
+            <input type="checkbox" id="terms" name="terms" required style="margin-top: 3px;">
+            <span>I accept the student portal guidelines and confirm the provided academic information is accurate.</span>
+          </label>
+          <span id="terms-error" class="error-text"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;">Complete Registration</button>
+      </form>
+      <div style="text-align: center; margin-top: 1.25rem; font-size: 0.9rem;">
+        Already registered? <a href="login.html" style="color: var(--primary-color); font-weight: 600;">Sign in here</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="footer">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1.5rem; text-align: left; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border-color); margin-bottom: 1rem;">
+      <div style="flex: 1; min-width: 250px;">
+        <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">StudentHub Portal</h4>
+        <p style="font-size: 0.85rem; color: var(--text-muted);">
+          Developed for ITUE203: Web Development Frameworks practical curriculum, Faculty of Technology &amp; Engineering (FTE / CSPIT / DEPSTAR), CHARUSAT.
+        </p>
+      </div>
+      <div style="flex: 1; min-width: 160px;">
+        <h4 style="margin-bottom: 0.5rem;">Quick Links</h4>
+        <ul style="list-style: none; font-size: 0.85rem; line-height: 2;">
+          <li><a href="events.html" style="color: inherit; text-decoration: none;">Campus Events</a></li>
+          <li><a href="faq.html" style="color: inherit; text-decoration: none;">Knowledge Base &amp; FAQ</a></li>
+          <li><a href="contact.html" style="color: inherit; text-decoration: none;">Support &amp; Helpdesk</a></li>
+          <li><a href="feedback.html" style="color: inherit; text-decoration: none;">Feedback Form</a></li>
+        </ul>
+      </div>
+      <div style="flex: 1; min-width: 200px;">
+        <h4 style="margin-bottom: 0.5rem;">Campus Location</h4>
+        <p style="font-size: 0.85rem; color: var(--text-muted);">
+          CHARUSAT Campus, 139, Changa, Dist. Anand, Gujarat 388421.<br>
+          Email: info@charusat.edu.in
+        </p>
+      </div>
+    </div>
+    <p>&copy; 2026-27 CHARUSAT. All rights reserved. Built with Semantic HTML5, CSS3, JavaScript ES6+, PHP &amp; MySQL.</p>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    function evaluatePasswordStrength(val) {
+      const bar = document.getElementById('password-strength-bar');
+      const label = document.getElementById('password-strength-label');
+      let score = 0;
+
+      if (val.length >= 8) score++;
+      if (/[A-Z]/.test(val)) score++;
+      if (/[0-9]/.test(val)) score++;
+      if (/[\W]/.test(val)) score++;
+
+      if (score === 0) {
+        bar.style.width = '0%';
+        label.textContent = 'Strength: Empty';
+      } else if (score <= 2) {
+        bar.style.width = '35%';
+        bar.style.backgroundColor = '#ef4444';
+        label.textContent = 'Strength: Weak';
+      } else if (score === 3) {
+        bar.style.width = '70%';
+        bar.style.backgroundColor = '#f59e0b';
+        label.textContent = 'Strength: Moderate';
+      } else {
+        bar.style.width = '100%';
+        bar.style.backgroundColor = '#10b981';
+        label.textContent = 'Strength: Strong 🔒';
+      }
+    }
+
+    function validateFrontendForm(e) {
+      let isValid = true;
+
+      // Clear previous errors
+      document.querySelectorAll('.error-text').forEach(el => el.textContent = '');
+
+      const name = document.getElementById('full_name').value.trim();
+      const username = document.getElementById('username').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const password = document.getElementById('password').value;
+      const confirmPw = document.getElementById('confirm_password').value;
+      const terms = document.getElementById('terms').checked;
+
+      if (name.length < 3) {
+        document.getElementById('name-error').textContent = 'Please enter a valid full name (min 3 chars).';
+        isValid = false;
+      }
+
+      const userRegex = /^[a-zA-Z0-9_]{3,20}$/;
+      if (!userRegex.test(username)) {
+        document.getElementById('username-error').textContent = 'Username must be 3-20 alphanumeric characters or underscores.';
+        isValid = false;
+      }
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        document.getElementById('email-error').textContent = 'Please enter a valid email address.';
+        isValid = false;
+      }
+
+      const phoneRegex = /^[0-9]{10}$/;
+      if (!phoneRegex.test(phone)) {
+        document.getElementById('phone-error').textContent = 'Phone number must be exactly 10 digits.';
+        isValid = false;
+      }
+
+      const pwRegex = /^(?=.*[A-Z])(?=.*[0-9])(?=.*[\W]).{8,}$/;
+      if (!pwRegex.test(password)) {
+        document.getElementById('password-error').textContent = 'Password must have at least 8 chars, 1 uppercase letter, 1 number, and 1 special symbol.';
+        isValid = false;
+      }
+
+      if (password !== confirmPw) {
+        document.getElementById('confirm-password-error').textContent = 'Passwords do not match.';
+        isValid = false;
+      }
+
+      if (!terms) {
+        document.getElementById('terms-error').textContent = 'You must accept the terms before continuing.';
+        isValid = false;
+      }
+
+      if (!isValid) {
+        e.preventDefault();
+        return false;
+      }
+
+      if (window.location.protocol === 'file:') {
+        e.preventDefault();
+        document.getElementById('registerSuccessAlert').style.display = 'block';
+        document.getElementById('registerSuccessMsg').textContent = `Success! Account created for ${name}. You can proceed to Login.`;
+        setTimeout(() => { window.location.href = 'login.html'; }, 2000);
+        return false;
+      }
+
+      return isValid;
+    }
+  </script>
+</body>
+</html>

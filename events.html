@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Campus Events &amp; Workshops - StudentHub">
+  <title>Campus Events &amp; Registration | StudentHub</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="icon" href="data:,">
+</head>
+<body>
+  <!-- Accessibility: Skip to Content -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Navigation Header -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo" aria-label="StudentHub Homepage">
+        🎓 Student<span>Hub</span>
+        <span class="brand-badge">CHARUSAT</span>
+      </a>
+
+      <button class="hamburger" id="nav-toggle" aria-label="Toggle navigation menu">☰</button>
+
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="events.html" class="nav-link active">Events</a></li>
+          <li><a href="faq.html" class="nav-link">FAQ</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="feedback.html" class="nav-link">Feedback</a></li>
+          <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+          <li><a href="admin.html" class="nav-link" style="color: var(--secondary-color); font-weight:700;">Admin</a></li>
+          <li><a href="login.html" class="btn btn-outline btn-sm">Sign In</a></li>
+          <li><a href="register.html" class="btn btn-primary btn-sm">Register</a></li>
+        </ul>
+      </nav>
+
+      <div class="theme-switch-wrapper" style="display: flex; align-items: center; gap: 0.5rem; margin-left: 1rem;">
+        <button id="theme-toggle" class="theme-btn" aria-label="Toggle Dark and Light Mode" title="Toggle theme">🌙</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Body -->
+  <main id="main-content" class="container">
+    <section style="margin-bottom: 2rem;">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem;">
+        <div>
+          <h1 style="color: var(--primary-color); margin-bottom: 0.25rem;">Campus Events &amp; Workshops</h1>
+          <p style="color: var(--text-muted);">Explore technical fests, hackathons, seminars, and student competitions.</p>
+        </div>
+        <div>
+          <span class="brand-badge">Practical 6: Fetch API</span>
+        </div>
+      </div>
+
+      <!-- Search, Filter & Controls Bar -->
+      <div class="card" style="margin-bottom: 1.5rem; padding: 1.25rem;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; align-items: center;">
+          <div>
+            <label for="event-search" class="form-label">Search Events</label>
+            <input type="text" id="event-search" class="form-control" placeholder="Search by title, keyword, or venue...">
+          </div>
+          <div>
+            <label for="event-category" class="form-label">Filter Category</label>
+            <select id="event-category" class="form-control">
+              <option value="all">All Categories</option>
+              <option value="Festival">Festival</option>
+              <option value="Workshop">Workshop</option>
+              <option value="Hackathon">Hackathon</option>
+              <option value="Seminar">Seminar</option>
+              <option value="Competition">Competition</option>
+            </select>
+          </div>
+          <div>
+            <label for="event-sort" class="form-label">Sort By</label>
+            <select id="event-sort" class="form-control">
+              <option value="date-asc">Date (Earliest First)</option>
+              <option value="date-desc">Date (Latest First)</option>
+              <option value="title-asc">Title (A-Z)</option>
+              <option value="capacity-desc">Capacity (High to Low)</option>
+            </select>
+          </div>
+          <div>
+            <label for="items-per-page" class="form-label">Show per page</label>
+            <select id="items-per-page" class="form-control">
+              <option value="6">6 per page</option>
+              <option value="9">9 per page</option>
+              <option value="15">All</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Loading State -->
+      <div id="loading-spinner" style="text-align: center; padding: 3rem 0; display: none;">
+        <p style="font-size: 1.1rem; color: var(--text-muted);">⏳ Loading campus events data...</p>
+      </div>
+
+      <!-- Events Container Grid -->
+      <div id="events-grid" class="card-grid"></div>
+
+      <!-- Pagination Controls -->
+      <div id="pagination-controls" style="display: flex; justify-content: center; align-items: center; gap: 0.5rem; margin-top: 2rem;"></div>
+    </section>
+
+    <!-- Register Event Modal -->
+    <div id="eventModal" class="modal-backdrop">
+      <div class="modal-content">
+        <h3 id="modalEventTitle" style="color: var(--primary-color); margin-bottom: 0.5rem;">Event Title</h3>
+        <p id="modalEventDetails" style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;"></p>
+        <div id="modalRegistrationMessage" style="margin-bottom: 1rem;"></div>
+
+        <form id="eventRegistrationForm" onsubmit="handleEventRegistration(event)">
+          <input type="hidden" id="modalEventId" name="event_id">
+          <div class="form-group">
+            <label class="form-label" for="regStudentName">Full Name</label>
+            <input type="text" id="regStudentName" class="form-control" required placeholder="Enter student full name">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="regStudentEmail">University Email</label>
+            <input type="email" id="regStudentEmail" class="form-control" required placeholder="id@charusat.edu.in">
+          </div>
+          <div style="display: flex; justify-content: flex-end; gap: 0.75rem; margin-top: 1.5rem;">
+            <button type="button" class="btn btn-outline" onclick="closeModal('eventModal')">Cancel</button>
+            <button type="submit" class="btn btn-primary">Confirm Registration</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="footer">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1.5rem; text-align: left; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border-color); margin-bottom: 1rem;">
+      <div style="flex: 1; min-width: 250px;">
+        <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">StudentHub Portal</h4>
+        <p style="font-size: 0.85rem; color: var(--text-muted);">
+          Developed for ITUE203: Web Development Frameworks practical curriculum, Faculty of Technology &amp; Engineering (FTE / CSPIT / DEPSTAR), CHARUSAT.
+        </p>
+      </div>
+      <div style="flex: 1; min-width: 160px;">
+        <h4 style="margin-bottom: 0.5rem;">Quick Links</h4>
+        <ul style="list-style: none; font-size: 0.85rem; line-height: 2;">
+          <li><a href="events.html" style="color: inherit; text-decoration: none;">Campus Events</a></li>
+          <li><a href="faq.html" style="color: inherit; text-decoration: none;">Knowledge Base &amp; FAQ</a></li>
+          <li><a href="contact.html" style="color: inherit; text-decoration: none;">Support &amp; Helpdesk</a></li>
+          <li><a href="feedback.html" style="color: inherit; text-decoration: none;">Feedback Form</a></li>
+        </ul>
+      </div>
+      <div style="flex: 1; min-width: 200px;">
+        <h4 style="margin-bottom: 0.5rem;">Campus Location</h4>
+        <p style="font-size: 0.85rem; color: var(--text-muted);">
+          CHARUSAT Campus, 139, Changa, Dist. Anand, Gujarat 388421.<br>
+          Email: info@charusat.edu.in
+        </p>
+      </div>
+    </div>
+    <p>&copy; 2026-27 CHARUSAT. All rights reserved. Built with Semantic HTML5, CSS3, JavaScript ES6+, PHP &amp; MySQL.</p>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    let allEvents = [];
+    let currentPage = 1;
+    let pageSize = 6;
+
+    document.addEventListener('DOMContentLoaded', () => {
+      fetchEvents();
+
+      document.getElementById('event-search').addEventListener('input', () => {
+        currentPage = 1;
+        applyFiltersAndRender();
+      });
+
+      document.getElementById('event-category').addEventListener('change', () => {
+        currentPage = 1;
+        applyFiltersAndRender();
+      });
+
+      document.getElementById('event-sort').addEventListener('change', () => {
+        applyFiltersAndRender();
+      });
+
+      document.getElementById('items-per-page').addEventListener('change', (e) => {
+        pageSize = parseInt(e.target.value);
+        currentPage = 1;
+        applyFiltersAndRender();
+      });
+    });
+
+    async function fetchEvents() {
+      const spinner = document.getElementById('loading-spinner');
+      spinner.style.display = 'block';
+
+      try {
+        // First try to load from data/events.json directly for pure static HTML
+        const res = await fetch('data/events.json');
+        if (!res.ok) throw new Error('Data file not reachable');
+        allEvents = await res.json();
+      } catch (err) {
+        console.warn('Fetch fallback to API if running on server:', err);
+        try {
+          const apiRes = await fetch('api/events.php');
+          const json = await apiRes.json();
+          allEvents = json.data || [];
+        } catch(e) {
+          console.error('All event fetch attempts failed:', e);
+        }
+      } finally {
+        spinner.style.display = 'none';
+        applyFiltersAndRender();
+      }
+    }
+
+    function applyFiltersAndRender() {
+      const query = document.getElementById('event-search').value.toLowerCase().trim();
+      const cat = document.getElementById('event-category').value;
+      const sort = document.getElementById('event-sort').value;
+
+      let filtered = allEvents.filter(ev => {
+        const matchesQuery = !query ||
+          ev.title.toLowerCase().includes(query) ||
+          ev.description.toLowerCase().includes(query) ||
+          ev.venue.toLowerCase().includes(query);
+        const matchesCat = cat === 'all' || ev.category.toLowerCase() === cat.toLowerCase();
+        return matchesQuery && matchesCat;
+      });
+
+      filtered.sort((a, b) => {
+        if (sort === 'date-asc') return new Date(a.date || a.event_date) - new Date(b.date || b.event_date);
+        if (sort === 'date-desc') return new Date(b.date || b.event_date) - new Date(a.date || a.event_date);
+        if (sort === 'title-asc') return a.title.localeCompare(b.title);
+        if (sort === 'capacity-desc') return (b.capacity || 0) - (a.capacity || 0);
+        return 0;
+      });
+
+      const totalItems = filtered.length;
+      const totalPages = Math.ceil(totalItems / pageSize) || 1;
+      if (currentPage > totalPages) currentPage = totalPages;
+
+      const startIndex = (currentPage - 1) * pageSize;
+      const pageItems = filtered.slice(startIndex, startIndex + pageSize);
+
+      renderEvents(pageItems);
+      renderPagination(totalPages, totalItems);
+    }
+
+    function renderEvents(items) {
+      const container = document.getElementById('events-grid');
+      if (!items.length) {
+        container.innerHTML = `
+          <div style="grid-column: 1 / -1; text-align: center; padding: 3rem 1rem;">
+            <p style="font-size: 1.1rem; color: var(--text-muted);">No campus events found matching your search criteria.</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = items.map(ev => {
+        const dateStr = ev.date || ev.event_date || 'TBA';
+        const posterImg = ev.poster_image ? `assets/uploads/${ev.poster_image}` : '';
+        return `
+          <article class="card event-card" style="display: flex; flex-direction: column;">
+            ${posterImg ? `<img src="${posterImg}" alt="${escapeHtml(ev.title)}" style="width: 100%; height: 160px; object-fit: cover; border-radius: 4px; margin-bottom: 0.75rem;" onerror="this.style.display='none'">` : ''}
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.75rem;">
+              <span class="brand-badge">${escapeHtml(ev.category)}</span>
+              <span style="font-size: 0.8rem; color: var(--text-muted);">Capacity: <strong>${ev.capacity || 'Open'}</strong></span>
+            </div>
+            <h3 style="font-size: 1.2rem; color: var(--primary-color); margin-bottom: 0.5rem;">${escapeHtml(ev.title)}</h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted); flex-grow: 1; margin-bottom: 1rem; line-height: 1.5;">
+              ${escapeHtml(ev.description || '')}
+            </p>
+            <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; border-top: 1px solid var(--border-color); padding-top: 0.75rem;">
+              <div>📅 <strong>Date:</strong> ${dateStr} at ${ev.time || ev.event_time || '10:00 AM'}</div>
+              <div>📍 <strong>Venue:</strong> ${escapeHtml(ev.venue || 'CHARUSAT Campus')}</div>
+            </div>
+            <button class="btn btn-primary btn-sm" onclick="openRegisterModal(${ev.id}, '${escapeHtml(ev.title)}', '${dateStr}', '${escapeHtml(ev.venue || '')}')">Register Now</button>
+          </article>
+        `;
+      }).join('');
+    }
+
+    function renderPagination(totalPages, totalItems) {
+      const container = document.getElementById('pagination-controls');
+      if (totalPages <= 1) {
+        container.innerHTML = totalItems > 0 ? `<span style="font-size: 0.85rem; color: var(--text-muted);">Showing all ${totalItems} results</span>` : '';
+        return;
+      }
+
+      let html = `<button class="btn btn-outline btn-sm" ${currentPage === 1 ? 'disabled style="opacity:0.5; cursor:not-allowed;"' : ''} onclick="goToPage(${currentPage - 1})">&laquo; Previous</button>`;
+      for (let i = 1; i <= totalPages; i++) {
+        html += `<button class="btn ${i === currentPage ? 'btn-primary' : 'btn-outline'} btn-sm" onclick="goToPage(${i})">${i}</button>`;
+      }
+      html += `<button class="btn btn-outline btn-sm" ${currentPage === totalPages ? 'disabled style="opacity:0.5; cursor:not-allowed;"' : ''} onclick="goToPage(${currentPage + 1})">Next &raquo;</button>`;
+      container.innerHTML = html;
+    }
+
+    function goToPage(p) {
+      currentPage = p;
+      applyFiltersAndRender();
+      window.scrollTo({ top: 300, behavior: 'smooth' });
+    }
+
+    function openRegisterModal(id, title, date, venue) {
+      document.getElementById('modalEventId').value = id;
+      document.getElementById('modalEventTitle').textContent = title;
+      document.getElementById('modalEventDetails').textContent = `📅 ${date} | 📍 ${venue}`;
+      document.getElementById('modalRegistrationMessage').innerHTML = '';
+      document.getElementById('eventModal').classList.add('active');
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).classList.remove('active');
+    }
+
+    function handleEventRegistration(e) {
+      e.preventDefault();
+      const title = document.getElementById('modalEventTitle').textContent;
+      const studentName = document.getElementById('regStudentName').value;
+      const msgBox = document.getElementById('modalRegistrationMessage');
+
+      msgBox.innerHTML = `
+        <div class="alert alert-success">
+          <span>✅ Confirmed! <strong>${escapeHtml(studentName)}</strong> is now registered for <strong>${escapeHtml(title)}</strong>.</span>
+        </div>
+      `;
+      setTimeout(() => {
+        closeModal('eventModal');
+        document.getElementById('eventRegistrationForm').reset();
+      }, 2000);
+    }
+
+    function escapeHtml(str) {
+      return String(str || '').replace(/[&<>"']/g, function(m) {
+        return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m];
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+[
+  {"id": 1, "student_id": "23IT001", "name": "Divyakumar Shukla", "department": "Information Technology", "semester": 3, "email": "divyakumar@charusat.edu.in", "cgpa": 9.4},
+  {"id": 2, "student_id": "23IT002", "name": "Priya Patel", "department": "Computer Engineering", "semester": 3, "email": "priya.patel@charusat.edu.in", "cgpa": 9.1},
+  {"id": 3, "student_id": "23IT003", "name": "Aarav Shah", "department": "Information Technology", "semester": 3, "email": "aarav.shah@charusat.edu.in", "cgpa": 8.8},
+  {"id": 4, "student_id": "23IT004", "name": "Ananya Desai", "department": "Computer Science", "semester": 3, "email": "ananya.desai@charusat.edu.in", "cgpa": 9.3},
+  {"id": 5, "student_id": "23IT005", "name": "Rohan Mehta", "department": "Information Technology", "semester": 3, "email": "rohan.mehta@charusat.edu.in", "cgpa": 8.5},
+  {"id": 6, "student_id": "23IT006", "name": "Diya Joshi", "department": "AI & ML", "semester": 3, "email": "diya.joshi@charusat.edu.in", "cgpa": 9.0},
+  {"id": 7, "student_id": "23IT007", "name": "Kabir Dave", "department": "Computer Engineering", "semester": 3, "email": "kabir.dave@charusat.edu.in", "cgpa": 8.7},
+  {"id": 8, "student_id": "23IT008", "name": "Isha Trivedi", "department": "Information Technology", "semester": 3, "email": "isha.trivedi@charusat.edu.in", "cgpa": 8.9},
+  {"id": 9, "student_id": "23IT009", "name": "Aditya Panchal", "department": "AI & ML", "semester": 3, "email": "aditya.p@charusat.edu.in", "cgpa": 8.4},
+  {"id": 10, "student_id": "23IT010", "name": "Tanvi Bhatt", "department": "Computer Engineering", "semester": 3, "email": "tanvi.bhatt@charusat.edu.in", "cgpa": 9.2},
+  {"id": 11, "student_id": "23IT011", "name": "Dev Parmar", "department": "Information Technology", "semester": 3, "email": "dev.parmar@charusat.edu.in", "cgpa": 8.3},
+  {"id": 12, "student_id": "23IT012", "name": "Rhea Sharma", "department": "Computer Science", "semester": 3, "email": "rhea.sharma@charusat.edu.in", "cgpa": 9.5},
+  {"id": 13, "student_id": "23IT013", "name": "Karan Soni", "department": "Information Technology", "semester": 3, "email": "karan.soni@charusat.edu.in", "cgpa": 8.6},
+  {"id": 14, "student_id": "23IT014", "name": "Kavya Rana", "department": "AI & ML", "semester": 3, "email": "kavya.rana@charusat.edu.in", "cgpa": 9.0},
+  {"id": 15, "student_id": "23IT015", "name": "Yash Vyas", "department": "Computer Engineering", "semester": 3, "email": "yash.vyas@charusat.edu.in", "cgpa": 8.7}
+]

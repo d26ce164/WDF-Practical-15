@@ -1,0 +1,17 @@
+[
+  {"id": 1, "question": "What is StudentHub?", "answer": "StudentHub is the unified academic and campus engagement portal for CHARUSAT engineering students.", "category": "General"},
+  {"id": 2, "question": "How do I register for an event?", "answer": "Navigate to the Events page, browse available workshops or fests, and click the 'Register' button once logged in.", "category": "Events"},
+  {"id": 3, "question": "Can I update my profile details?", "answer": "Yes, log into your student dashboard and access the Profile page to update your contact details.", "category": "Account"},
+  {"id": 4, "question": "How do I reset my password?", "answer": "Contact the CSPIT IT administrator or use the self-service reset option via registered university email.", "category": "Security"},
+  {"id": 5, "question": "Are event certificates provided?", "answer": "Yes, verified attendance records automatically unlock downloadable certificates on your student dashboard.", "category": "Events"},
+  {"id": 6, "question": "What is the session timeout period?", "answer": "For security reasons, active sessions automatically expire after 15 minutes of inactivity.", "category": "Security"},
+  {"id": 7, "question": "Who can post new events?", "answer": "Event posting is restricted to administrators and authorized student club coordinators.", "category": "Admin"},
+  {"id": 8, "question": "How does the Remember Me feature work?", "answer": "It securely stores a cryptographically hashed random token in the database and an HTTP cookie.", "category": "Security"},
+  {"id": 9, "question": "Is StudentHub mobile-friendly?", "answer": "Yes, the UI is built mobile-first using modern CSS Flexbox, Grid, and responsive viewport breakpoints.", "category": "General"},
+  {"id": 10, "question": "Can students export event lists?", "answer": "Yes, JSON and CSV export capabilities are provided in student and admin dashboards.", "category": "Features"},
+  {"id": 11, "question": "What browser versions are supported?", "answer": "All modern browsers including Google Chrome, Mozilla Firefox, Microsoft Edge, and Apple Safari.", "category": "Technical"},
+  {"id": 12, "question": "How are uploaded event posters validated?", "answer": "Posters are validated for MIME type (JPEG/PNG/WEBP) and file size (maximum 2MB).", "category": "Admin"},
+  {"id": 13, "question": "Where can I provide feedback?", "answer": "Use the Feedback link in the navigation menu to submit constructive suggestions.", "category": "General"},
+  {"id": 14, "question": "Are audit logs tracked?", "answer": "Yes, all critical administrative actions and login attempts are logged in audit_logs with IP address.", "category": "Admin"},
+  {"id": 15, "question": "Which frameworks and technologies power StudentHub?", "answer": "HTML5, CSS3, JavaScript ES6+, PHP, and MySQL as per the ITUE203 course syllabus.", "category": "Technical"}
+]

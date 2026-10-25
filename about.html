@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About StudentHub - Academic Syllabus & Framework Overview">
+  <title>About StudentHub &amp; Course Syllabus | StudentHub</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="icon" href="data:,">
+</head>
+<body>
+  <!-- Accessibility: Skip to Content -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Navigation Header -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo" aria-label="StudentHub Homepage">
+        🎓 Student<span>Hub</span>
+        <span class="brand-badge">CHARUSAT</span>
+      </a>
+
+      <button class="hamburger" id="nav-toggle" aria-label="Toggle navigation menu">☰</button>
+
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link active">About</a></li>
+          <li><a href="events.html" class="nav-link">Events</a></li>
+          <li><a href="faq.html" class="nav-link">FAQ</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="feedback.html" class="nav-link">Feedback</a></li>
+          <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+          <li><a href="admin.html" class="nav-link" style="color: var(--secondary-color); font-weight:700;">Admin</a></li>
+          <li><a href="login.html" class="btn btn-outline btn-sm">Sign In</a></li>
+          <li><a href="register.html" class="btn btn-primary btn-sm">Register</a></li>
+        </ul>
+      </nav>
+
+      <div class="theme-switch-wrapper" style="display: flex; align-items: center; gap: 0.5rem; margin-left: 1rem;">
+        <button id="theme-toggle" class="theme-btn" aria-label="Toggle Dark and Light Mode" title="Toggle theme">🌙</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Body -->
+  <main id="main-content" class="container">
+    <section style="margin-bottom: 2rem;">
+      <h1 style="color: var(--primary-color); margin-bottom: 0.5rem;">About StudentHub</h1>
+      <p style="font-size: 1.05rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+        StudentHub is a comprehensive semester project engineered under <strong>ITUE203: Web Development Frameworks</strong> at CHARUSAT, Faculty of Technology &amp; Engineering.
+      </p>
+
+      <div class="card" style="margin-bottom: 2rem;">
+        <h2 style="font-size: 1.25rem; color: var(--secondary-color); margin-bottom: 0.75rem;">Academic Context &amp; Objectives</h2>
+        <p style="margin-bottom: 1rem;">
+          The objective of this portal is to transition students from raw HTML/CSS fundamentals into production-ready web application development with full-stack capabilities, security hardening, database integration, and modern asynchronous frontend paradigms.
+        </p>
+        <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+          <div>
+            <strong>Course Code:</strong> ITUE203<br>
+            <strong>Semester:</strong> 3rd Semester, 2026-27 (Odd)
+          </div>
+          <div>
+            <strong>Departments:</strong> CSPIT (CE/IT/CSE/AIML), DEPSTAR (CE/CSE/IT)<br>
+            <strong>University:</strong> CHARUSAT, Changa
+          </div>
+        </div>
+      </div>
+
+      <h2 style="color: var(--primary-color); margin-bottom: 1rem;">15 Practical Modules Implemented</h2>
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Practical No.</th>
+              <th>Title</th>
+              <th>Core Technology &amp; Concept</th>
+              <th>CO Mapping</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>01</td><td>Project Initiation, Sitemap, Wireframe</td><td>Requirements, Wireframes, Git/GitHub</td><td>CO1</td></tr>
+            <tr><td>02</td><td>Semantic HTML5 Pages</td><td>Semantic Tags, Accessibility (WCAG), Skip-Links</td><td>CO1, CO2</td></tr>
+            <tr><td>03</td><td>Responsive UI Design</td><td>CSS Grid, Flexbox, Mobile-first Responsive Breakpoints</td><td>CO2</td></tr>
+            <tr><td>04</td><td>JavaScript DOM &amp; Interactivity</td><td>DOM Manipulation, Event Handling, LocalStorage Theme</td><td>CO3, CO4</td></tr>
+            <tr><td>05</td><td>Registration Form Validation</td><td>Regex Validation, Password Strength Meter, Inline Errors</td><td>CO1, CO3</td></tr>
+            <tr><td>06</td><td>External JSON Rendering</td><td>Fetch API, Filtering, Sorting, Client-Side Pagination</td><td>CO3, CO4</td></tr>
+            <tr><td>07</td><td>PHP Server-Side Processing</td><td>Form POST Sanitization, CSV &amp; JSON File Storage</td><td>CO1, CO5</td></tr>
+            <tr><td>08</td><td>MySQL Schema &amp; DB Connectivity</td><td>Relational Schema Design, Foreign Keys, MySQLi Connect</td><td>CO1, CO5</td></tr>
+            <tr><td>09</td><td>Secure Registration &amp; Password Hashing</td><td>Duplicate Checks, BCRYPT Hashing, Prepared Statements</td><td>CO1, CO3, CO5</td></tr>
+            <tr><td>10</td><td>Secure Authentication &amp; RBAC</td><td>Session Management, 15m Timeout, Remember Tokens</td><td>CO1, CO5</td></tr>
+            <tr><td>11</td><td>Student Management CRUD</td><td>Full CRUD, Live Search, Multi-Filter, Confirm Modal</td><td>CO1, CO4, CO5</td></tr>
+            <tr><td>12</td><td>Event CRUD &amp; Poster Upload</td><td>Validated File Uploads, MIME Checking, Directory Safety</td><td>CO1, CO4, CO5</td></tr>
+            <tr><td>13</td><td>PHP JSON API &amp; Asynchronous Fetch CRUD</td><td>RESTful JSON Endpoints, Zero Full-Page Reloads</td><td>CO3, CO4, CO5</td></tr>
+            <tr><td>14</td><td>Admin Dashboard &amp; Audit Logging</td><td>Aggregated Metrics, Activity Logs, Dynamic Role Menus</td><td>CO1, CO4, CO5</td></tr>
+            <tr><td>15</td><td>Full Integration &amp; Deployment</td><td>End-to-End System Integration, Testing &amp; Documentation</td><td>CO2, CO4, CO5</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="footer">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1.5rem; text-align: left; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border-color); margin-bottom: 1rem;">
+      <div style="flex: 1; min-width: 250px;">
+        <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">StudentHub Portal</h4>
+        <p style="font-size: 0.85rem; color: var(--text-muted);">
+          Developed for ITUE203: Web Development Frameworks practical curriculum, Faculty of Technology &amp; Engineering (FTE / CSPIT / DEPSTAR), CHARUSAT.
+        </p>
+      </div>
+      <div style="flex: 1; min-width: 160px;">
+        <h4 style="margin-bottom: 0.5rem;">Quick Links</h4>
+        <ul style="list-style: none; font-size: 0.85rem; line-height: 2;">
+          <li><a href="events.html" style="color: inherit; text-decoration: none;">Campus Events</a></li>
+          <li><a href="faq.html" style="color: inherit; text-decoration: none;">Knowledge Base &amp; FAQ</a></li>
+          <li><a href="contact.html" style="color: inherit; text-decoration: none;">Support &amp; Helpdesk</a></li>
+          <li><a href="feedback.html" style="color: inherit; text-decoration: none;">Feedback Form</a></li>
+        </ul>
+      </div>
+      <div style="flex: 1; min-width: 200px;">
+        <h4 style="margin-bottom: 0.5rem;">Campus Location</h4>
+        <p style="font-size: 0.85rem; color: var(--text-muted);">
+          CHARUSAT Campus, 139, Changa, Dist. Anand, Gujarat 388421.<br>
+          Email: info@charusat.edu.in
+        </p>
+      </div>
+    </div>
+    <p>&copy; 2026-27 CHARUSAT. All rights reserved. Built with Semantic HTML5, CSS3, JavaScript ES6+, PHP &amp; MySQL.</p>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

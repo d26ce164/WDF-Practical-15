@@ -1,0 +1,167 @@
+[
+  {
+    "id": 1,
+    "title": "Spoural 2026 Annual Tech Fest",
+    "category": "Festival",
+    "date": "2026-11-15",
+    "time": "09:00 AM",
+    "venue": "Central Auditorium, CHARUSAT",
+    "capacity": 500,
+    "coordinator": "Dr. Martin Parmar",
+    "description": "CHARUSAT Annual Flagship Technical and Cultural Festival with 30+ competitive events."
+  },
+  {
+    "id": 2,
+    "title": "Full Stack Web Bootcamp",
+    "category": "Workshop",
+    "date": "2026-11-20",
+    "time": "10:00 AM",
+    "venue": "Lab 301, CSPIT Building",
+    "capacity": 60,
+    "coordinator": "Ms. Srushti Gajjar",
+    "description": "Hands-on training covering HTML5, CSS3, JavaScript ES6+, PHP, and MySQL application design."
+  },
+  {
+    "id": 3,
+    "title": "AI & GenAI Hackathon 2026",
+    "category": "Hackathon",
+    "date": "2026-12-05",
+    "time": "08:30 AM",
+    "venue": "Innovation Center, DEPSTAR",
+    "capacity": 120,
+    "coordinator": "Dr. Jalpesh Vasa",
+    "description": "36-hour non-stop hackathon building generative AI applications for societal challenges."
+  },
+  {
+    "id": 4,
+    "title": "Cyber Security & Ethical Hacking",
+    "category": "Seminar",
+    "date": "2026-12-12",
+    "time": "02:00 PM",
+    "venue": "Seminar Hall 1",
+    "capacity": 150,
+    "coordinator": "Mr. Ravi Patel",
+    "description": "Industry expert talk on modern web application security, SQL injection prevention, and XSS defensive strategies."
+  },
+  {
+    "id": 5,
+    "title": "Campus Code Relay 2026",
+    "category": "Competition",
+    "date": "2026-12-18",
+    "time": "11:00 AM",
+    "venue": "CS Lab Complex",
+    "capacity": 80,
+    "coordinator": "Mr. Dhaval Patel",
+    "description": "Fast-paced algorithmic programming contest with team relay rounds."
+  },
+  {
+    "id": 6,
+    "title": "Cloud DevOps Hands-on Lab",
+    "category": "Workshop",
+    "date": "2026-12-22",
+    "time": "09:30 AM",
+    "venue": "Lab 204, CSPIT",
+    "capacity": 70,
+    "coordinator": "Ms. Vaibhavi Patel",
+    "description": "Introduction to Docker containers, CI/CD pipelines, and cloud hosting."
+  },
+  {
+    "id": 7,
+    "title": "UI/UX Design Sprint",
+    "category": "Workshop",
+    "date": "2027-01-08",
+    "time": "10:00 AM",
+    "venue": "Design Studio DEPSTAR",
+    "capacity": 50,
+    "coordinator": "Ms. Priyanka Padhiyar",
+    "description": "Interactive wireframing, Figma prototyping, and design systems workshop."
+  },
+  {
+    "id": 8,
+    "title": "Data Science Research Symposium",
+    "category": "Seminar",
+    "date": "2027-01-15",
+    "time": "01:30 PM",
+    "venue": "Auditorium 2",
+    "capacity": 200,
+    "coordinator": "Dr. Mrugendra Rahevar",
+    "description": "Keynote speeches on deep learning, NLP, and modern big-data pipelines."
+  },
+  {
+    "id": 9,
+    "title": "Robotics Maze Challenge",
+    "category": "Competition",
+    "date": "2027-01-20",
+    "time": "10:30 AM",
+    "venue": "Robotics Lab",
+    "capacity": 90,
+    "coordinator": "Mr. Jay Patel",
+    "description": "Autonomous bot obstacle navigation and speed run challenge."
+  },
+  {
+    "id": 10,
+    "title": "Open Source Contribution Sprint",
+    "category": "Hackathon",
+    "date": "2027-01-25",
+    "time": "09:00 AM",
+    "venue": "Lab 102",
+    "capacity": 85,
+    "coordinator": "Mr. Vaibhav Matalia",
+    "description": "Guidance on Git pull requests, open-source repositories, and GitHub workflows."
+  },
+  {
+    "id": 11,
+    "title": "Mobile App Development with Flutter",
+    "category": "Workshop",
+    "date": "2027-02-02",
+    "time": "10:00 AM",
+    "venue": "Lab 305",
+    "capacity": 65,
+    "coordinator": "Ms. Pooja Singh Chaudhary",
+    "description": "Build cross-platform Android and iOS applications with Flutter & Dart."
+  },
+  {
+    "id": 12,
+    "title": "Startup Pitch Deck Showcase",
+    "category": "Competition",
+    "date": "2027-02-10",
+    "time": "02:00 PM",
+    "venue": "E-Cell Incubation Center",
+    "capacity": 100,
+    "coordinator": "Dr. Nikita Bhatt",
+    "description": "Student entrepreneurs pitch their tech startup ideas to angel investors."
+  },
+  {
+    "id": 13,
+    "title": "Database Optimization Masterclass",
+    "category": "Seminar",
+    "date": "2027-02-18",
+    "time": "11:30 AM",
+    "venue": "Seminar Hall 2",
+    "capacity": 110,
+    "coordinator": "Dr. Martin Parmar",
+    "description": "Mastering indexing, execution plans, normalization, and query performance in MySQL."
+  },
+  {
+    "id": 14,
+    "title": "Cyber Forensics Capture The Flag",
+    "category": "Competition",
+    "date": "2027-02-24",
+    "time": "10:00 AM",
+    "venue": "Security Lab",
+    "capacity": 95,
+    "coordinator": "Mr. Ravi Patel",
+    "description": "Hands-on jeopardy-style CTF challenge covering cryptography and network forensics."
+  },
+  {
+    "id": 15,
+    "title": "Alumni Career Mentorship Day",
+    "category": "Seminar",
+    "date": "2027-03-05",
+    "time": "03:00 PM",
+    "venue": "Central Auditorium",
+    "capacity": 300,
+    "coordinator": "Ms. Srushti Gajjar",
+    "description": "Interactive panel with CHARUSAT alumni working across top global tech companies."
+  }
+]

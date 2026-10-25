@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact StudentHub Support - Helpdesk & Inquiries">
+  <title>Contact Us &amp; Campus Inquiry | StudentHub</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="icon" href="data:,">
+</head>
+<body>
+  <!-- Accessibility: Skip to Content -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Navigation Header -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo" aria-label="StudentHub Homepage">
+        🎓 Student<span>Hub</span>
+        <span class="brand-badge">CHARUSAT</span>
+      </a>
+
+      <button class="hamburger" id="nav-toggle" aria-label="Toggle navigation menu">☰</button>
+
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="events.html" class="nav-link">Events</a></li>
+          <li><a href="faq.html" class="nav-link">FAQ</a></li>
+          <li><a href="contact.html" class="nav-link active">Contact</a></li>
+          <li><a href="feedback.html" class="nav-link">Feedback</a></li>
+          <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+          <li><a href="admin.html" class="nav-link" style="color: var(--secondary-color); font-weight:700;">Admin</a></li>
+          <li><a href="login.html" class="btn btn-outline btn-sm">Sign In</a></li>
+          <li><a href="register.html" class="btn btn-primary btn-sm">Register</a></li>
+        </ul>
+      </nav>
+
+      <div class="theme-switch-wrapper" style="display: flex; align-items: center; gap: 0.5rem; margin-left: 1rem;">
+        <button id="theme-toggle" class="theme-btn" aria-label="Toggle Dark and Light Mode" title="Toggle theme">🌙</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Body -->
+  <main id="main-content" class="container">
+    <section style="margin-bottom: 2rem;">
+      <div style="max-width: 800px; margin: 0 auto;">
+        <div style="text-align: center; margin-bottom: 2rem;">
+          <h1 style="color: var(--primary-color); margin-bottom: 0.5rem;">Contact StudentHub Support</h1>
+          <p style="color: var(--text-muted);">Have questions or technical issues? Reach out directly to the course lab faculty and support team.</p>
+          <span class="brand-badge" style="margin-top: 0.5rem; display: inline-block;">Support Desk</span>
+        </div>
+
+        <div id="contact-success" class="alert alert-success" style="display: none;">
+          <span id="contact-success-msg">✅ Thank you! Your message has been safely received.</span>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+          <!-- Contact Info Card -->
+          <div class="card" style="height: fit-content;">
+            <h3 style="color: var(--primary-color); margin-bottom: 1rem;">Campus Department</h3>
+            <p style="font-size: 0.95rem; line-height: 1.8; color: var(--text-muted); margin-bottom: 1.5rem;">
+              Faculty of Technology &amp; Engineering (FTE)<br>
+              Chandubhai S Patel Institute of Technology (CSPIT)<br>
+              Devang Patel Institute of Advance Technology and Research (DEPSTAR)<br>
+              CHARUSAT Campus, Changa - 388421
+            </p>
+            <div style="font-size: 0.9rem; line-height: 2;">
+              <div>📞 <strong>Phone:</strong> +91 2697 265011 / 265021</div>
+              <div>✉️ <strong>Email:</strong> info@charusat.edu.in</div>
+              <div>⏰ <strong>Lab Hours:</strong> Monday - Saturday, 9:00 AM - 4:45 PM</div>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="card">
+            <form id="contactForm" method="POST" action="contact.php" onsubmit="handleContactSubmit(event)">
+              <div class="form-group">
+                <label class="form-label" for="contact-name">Full Name *</label>
+                <input type="text" id="contact-name" name="name" class="form-control" required placeholder="Your full name">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="contact-email">Email Address *</label>
+                <input type="email" id="contact-email" name="email" class="form-control" required placeholder="your.email@charusat.edu.in">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="contact-subject">Subject *</label>
+                <input type="text" id="contact-subject" name="subject" class="form-control" required placeholder="e.g. Lab 4 clarification, Event issue">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="contact-message">Message *</label>
+                <textarea id="contact-message" name="message" class="form-control" rows="4" required placeholder="Describe your question or issue in detail..."></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="footer">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1.5rem; text-align: left; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border-color); margin-bottom: 1rem;">
+      <div style="flex: 1; min-width: 250px;">
+        <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">StudentHub Portal</h4>
+        <p style="font-size: 0.85rem; color: var(--text-muted);">
+          Developed for ITUE203: Web Development Frameworks practical curriculum, Faculty of Technology &amp; Engineering (FTE / CSPIT / DEPSTAR), CHARUSAT.
+        </p>
+      </div>
+      <div style="flex: 1; min-width: 160px;">
+        <h4 style="margin-bottom: 0.5rem;">Quick Links</h4>
+        <ul style="list-style: none; font-size: 0.85rem; line-height: 2;">
+          <li><a href="events.html" style="color: inherit; text-decoration: none;">Campus Events</a></li>
+          <li><a href="faq.html" style="color: inherit; text-decoration: none;">Knowledge Base &amp; FAQ</a></li>
+          <li><a href="contact.html" style="color: inherit; text-decoration: none;">Support &amp; Helpdesk</a></li>
+          <li><a href="feedback.html" style="color: inherit; text-decoration: none;">Feedback Form</a></li>
+        </ul>
+      </div>
+      <div style="flex: 1; min-width: 200px;">
+        <h4 style="margin-bottom: 0.5rem;">Campus Location</h4>
+        <p style="font-size: 0.85rem; color: var(--text-muted);">
+          CHARUSAT Campus, 139, Changa, Dist. Anand, Gujarat 388421.<br>
+          Email: info@charusat.edu.in
+        </p>
+      </div>
+    </div>
+    <p>&copy; 2026-27 CHARUSAT. All rights reserved. Built with Semantic HTML5, CSS3, JavaScript ES6+, PHP &amp; MySQL.</p>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    function handleContactSubmit(e) {
+      // In static preview mode, demonstrate client submission feedback
+      // In PHP mode, the action="contact.php" processes server-side
+      const name = document.getElementById('contact-name').value;
+      const successBox = document.getElementById('contact-success');
+      const msg = document.getElementById('contact-success-msg');
+      msg.textContent = `✅ Thank you, ${name}! Your inquiry has been sent to the StudentHub helpdesk.`;
+      successBox.style.display = 'flex';
+      // If running through web server with contact.php available, form will submit to backend
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Frequently Asked Questions - StudentHub">
+  <title>Frequently Asked Questions | StudentHub</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="icon" href="data:,">
+</head>
+<body>
+  <!-- Accessibility: Skip to Content -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Navigation Header -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo" aria-label="StudentHub Homepage">
+        🎓 Student<span>Hub</span>
+        <span class="brand-badge">CHARUSAT</span>
+      </a>
+
+      <button class="hamburger" id="nav-toggle" aria-label="Toggle navigation menu">☰</button>
+
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="events.html" class="nav-link">Events</a></li>
+          <li><a href="faq.html" class="nav-link active">FAQ</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="feedback.html" class="nav-link">Feedback</a></li>
+          <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+          <li><a href="admin.html" class="nav-link" style="color: var(--secondary-color); font-weight:700;">Admin</a></li>
+          <li><a href="login.html" class="btn btn-outline btn-sm">Sign In</a></li>
+          <li><a href="register.html" class="btn btn-primary btn-sm">Register</a></li>
+        </ul>
+      </nav>
+
+      <div class="theme-switch-wrapper" style="display: flex; align-items: center; gap: 0.5rem; margin-left: 1rem;">
+        <button id="theme-toggle" class="theme-btn" aria-label="Toggle Dark and Light Mode" title="Toggle theme">🌙</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Body -->
+  <main id="main-content" class="container">
+    <section style="margin-bottom: 2rem;">
+      <div style="text-align: center; max-width: 700px; margin: 0 auto 2.5rem;">
+        <h1 style="color: var(--primary-color); margin-bottom: 0.5rem;">Frequently Asked Questions</h1>
+        <p style="color: var(--text-muted);">
+          Find quick answers about StudentHub accounts, workshop registration, session policies, and technical support.
+        </p>
+        <div style="margin-top: 1rem;">
+          <span class="brand-badge">Practical 4: Collapsible FAQ &amp; DOM Interaction</span>
+        </div>
+      </div>
+
+      <div style="max-width: 800px; margin: 0 auto;">
+        <!-- Search FAQ -->
+        <div class="form-group" style="margin-bottom: 1.5rem;">
+          <input type="text" id="faqSearchInput" class="form-control" placeholder="Search questions by keyword..." oninput="filterFaqs()">
+        </div>
+
+        <!-- Accordion List -->
+        <div id="faqAccordionList" style="display: flex; flex-direction: column; gap: 0.75rem;">
+          <!-- Populated dynamically via fetch or fallback -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="footer">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1.5rem; text-align: left; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border-color); margin-bottom: 1rem;">
+      <div style="flex: 1; min-width: 250px;">
+        <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">StudentHub Portal</h4>
+        <p style="font-size: 0.85rem; color: var(--text-muted);">
+          Developed for ITUE203: Web Development Frameworks practical curriculum, Faculty of Technology &amp; Engineering (FTE / CSPIT / DEPSTAR), CHARUSAT.
+        </p>
+      </div>
+      <div style="flex: 1; min-width: 160px;">
+        <h4 style="margin-bottom: 0.5rem;">Quick Links</h4>
+        <ul style="list-style: none; font-size: 0.85rem; line-height: 2;">
+          <li><a href="events.html" style="color: inherit; text-decoration: none;">Campus Events</a></li>
+          <li><a href="faq.html" style="color: inherit; text-decoration: none;">Knowledge Base &amp; FAQ</a></li>
+          <li><a href="contact.html" style="color: inherit; text-decoration: none;">Support &amp; Helpdesk</a></li>
+          <li><a href="feedback.html" style="color: inherit; text-decoration: none;">Feedback Form</a></li>
+        </ul>
+      </div>
+      <div style="flex: 1; min-width: 200px;">
+        <h4 style="margin-bottom: 0.5rem;">Campus Location</h4>
+        <p style="font-size: 0.85rem; color: var(--text-muted);">
+          CHARUSAT Campus, 139, Changa, Dist. Anand, Gujarat 388421.<br>
+          Email: info@charusat.edu.in
+        </p>
+      </div>
+    </div>
+    <p>&copy; 2026-27 CHARUSAT. All rights reserved. Built with Semantic HTML5, CSS3, JavaScript ES6+, PHP &amp; MySQL.</p>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    let faqsData = [];
+
+    const defaultFaqs = [
+      {
+        "id": 1,
+        "question": "What is the purpose of the StudentHub portal?",
+        "answer": "StudentHub provides CHARUSAT students with an integrated platform to access academic events, manage profiles, submit lab feedback, and explore technical workshops.",
+        "category": "General"
+      },
+      {
+        "id": 2,
+        "question": "How do I register for an account?",
+        "answer": "Click on the Register button in the navigation header, fill in your full name, student ID, valid CHARUSAT email, and set a secure password meeting university complexity requirements.",
+        "category": "Authentication"
+      },
+      {
+        "id": 3,
+        "question": "How long does a login session remain active?",
+        "answer": "To protect student privacy on shared computer labs, sessions automatically expire after 15 minutes of inactivity. Selecting 'Remember me' keeps you authenticated for 30 days.",
+        "category": "Security"
+      },
+      {
+        "id": 4,
+        "question": "Can I cancel my registration for an event?",
+        "answer": "Yes, log into your Student Dashboard, view your enrolled events table, and click Cancel Registration before the event cutoff date.",
+        "category": "Events"
+      },
+      {
+        "id": 5,
+        "question": "Who can access the Admin Panel?",
+        "answer": "Only accounts assigned the 'admin' role (faculty and system coordinators) have privileges to manage the student directory and create events.",
+        "category": "Admin"
+      }
+    ];
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      try {
+        const res = await fetch('data/faqs.json');
+        if (!res.ok) throw new Error('Data file not reachable');
+        faqsData = await res.json();
+      } catch (e) {
+        console.warn('Falling back to default FAQs array:', e);
+        faqsData = defaultFaqs;
+      }
+      renderFaqs(faqsData);
+    });
+
+    function renderFaqs(list) {
+      const container = document.getElementById('faqAccordionList');
+      if (!list.length) {
+        container.innerHTML = `<p class="alert alert-info">No questions match your query.</p>`;
+        return;
+      }
+
+      container.innerHTML = list.map((item, index) => `
+        <div class="card" style="padding: 0; overflow: hidden; border: 1px solid var(--border-color);">
+          <button class="accordion-header" style="width: 100%; text-align: left; padding: 1.1rem 1.25rem; background: var(--bg-card); border: none; font-size: 1rem; font-weight: 600; color: var(--text-main); display: flex; justify-content: space-between; align-items: center; cursor: pointer;" aria-expanded="false" onclick="toggleAccordion(this)">
+            <span>${escapeHtml(item.question)}</span>
+            <span class="icon" style="transition: transform 0.2s;">➕</span>
+          </button>
+          <div class="accordion-body" style="display: none; padding: 1rem 1.25rem; background-color: var(--bg-main); border-top: 1px solid var(--border-color); color: var(--text-muted); font-size: 0.93rem; line-height: 1.6;">
+            <p>${escapeHtml(item.answer)}</p>
+            <div style="margin-top: 0.5rem;"><span class="brand-badge" style="font-size: 0.7rem; background: var(--border-color); color: var(--text-muted);">${escapeHtml(item.category)}</span></div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function toggleAccordion(btn) {
+      const body = btn.nextElementSibling;
+      const icon = btn.querySelector('.icon');
+      const isCurrentlyOpen = body.style.display === 'block';
+
+      // Close all other open FAQs
+      document.querySelectorAll('.accordion-body').forEach(b => b.style.display = 'none');
+      document.querySelectorAll('.accordion-header .icon').forEach(i => {
+        i.textContent = '➕';
+      });
+      document.querySelectorAll('.accordion-header').forEach(h => h.setAttribute('aria-expanded', 'false'));
+
+      if (!isCurrentlyOpen) {
+        body.style.display = 'block';
+        icon.textContent = '➖';
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    }
+
+    function filterFaqs() {
+      const q = document.getElementById('faqSearchInput').value.toLowerCase().trim();
+      const filtered = faqsData.filter(f => f.question.toLowerCase().includes(q) || f.answer.toLowerCase().includes(q));
+      renderFaqs(filtered);
+    }
+
+    function escapeHtml(string) {
+      return String(string || '').replace(/[&<>"']/g, function(m) {
+        return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m];
+      });
+    }
+  </script>
+</body>
+</html>

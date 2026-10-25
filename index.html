@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="StudentHub - CHARUSAT Academic & Event Management Portal">
+  <title>Home - Campus Portal | StudentHub</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="icon" href="data:,">
+</head>
+<body>
+  <!-- Accessibility: Skip to Content -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Navigation Header -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo" aria-label="StudentHub Homepage">
+        🎓 Student<span>Hub</span>
+        <span class="brand-badge">CHARUSAT</span>
+      </a>
+
+      <button class="hamburger" id="nav-toggle" aria-label="Toggle navigation menu">☰</button>
+
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="events.html" class="nav-link">Events</a></li>
+          <li><a href="faq.html" class="nav-link">FAQ</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="feedback.html" class="nav-link">Feedback</a></li>
+          <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+          <li><a href="admin.html" class="nav-link" style="color: var(--secondary-color); font-weight:700;">Admin</a></li>
+          <li><a href="login.html" class="btn btn-outline btn-sm">Sign In</a></li>
+          <li><a href="register.html" class="btn btn-primary btn-sm">Register</a></li>
+        </ul>
+      </nav>
+
+      <div class="theme-switch-wrapper" style="display: flex; align-items: center; gap: 0.5rem; margin-left: 1rem;">
+        <button id="theme-toggle" class="theme-btn" aria-label="Toggle Dark and Light Mode" title="Toggle theme">🌙</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Body -->
+  <main id="main-content" class="container">
+    <!-- Hero Section with CSS Grid / Flexbox -->
+    <section style="background: linear-gradient(135deg, rgba(15,76,129,0.08) 0%, rgba(245,130,32,0.08) 100%); padding: 3rem 2rem; border-radius: var(--radius); margin-bottom: 2.5rem; text-align: center;">
+      <span class="brand-badge" style="margin-bottom: 1rem; display: inline-block;">Semester 3 - ITUE203</span>
+      <h1 style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 1rem;">Welcome to StudentHub</h1>
+      <p style="font-size: 1.15rem; color: var(--text-muted); max-width: 700px; margin: 0 auto 1.5rem;">
+        Your centralized platform for student lifecycle tracking, event registrations, campus announcements, and academic collaboration at CHARUSAT.
+      </p>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="register.html" class="btn btn-primary">Join StudentHub</a>
+        <a href="events.html" class="btn btn-outline">Explore Campus Events</a>
+        <a href="faq.html" class="btn btn-secondary">Frequently Asked Questions</a>
+      </div>
+    </section>
+
+    <!-- Quick Stats Feature Row -->
+    <section style="margin-bottom: 3rem;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; text-align: center;">
+        <div class="card">
+          <h3 style="font-size: 2rem; color: var(--primary-color); margin-bottom: 0.25rem;">1500+</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Enrolled Students</p>
+        </div>
+        <div class="card">
+          <h3 style="font-size: 2rem; color: var(--secondary-color); margin-bottom: 0.25rem;">30+</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Annual Events &amp; Fests</p>
+        </div>
+        <div class="card">
+          <h3 style="font-size: 2rem; color: var(--accent-color); margin-bottom: 0.25rem;">15</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Course Practical Modules</p>
+        </div>
+        <div class="card">
+          <h3 style="font-size: 2rem; color: var(--warning-color); margin-bottom: 0.25rem;">100%</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Accessible &amp; Responsive</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Modules Overview (Grid) -->
+    <section style="margin-bottom: 3rem;">
+      <h2 style="text-align: center; margin-bottom: 0.5rem; color: var(--primary-color);">Key Features &amp; Capabilities</h2>
+      <p style="text-align: center; color: var(--text-muted); margin-bottom: 2rem;">Designed and engineered according to modern web development standards.</p>
+
+      <div class="card-grid">
+        <div class="card">
+          <h3 style="margin-bottom: 0.5rem;">🔐 Secure Authentication</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">
+            BCRYPT password hashing, Role-Based Access Control (RBAC), session timeout protection, and remember-me tokens.
+          </p>
+          <a href="login.html" class="btn btn-sm btn-outline" style="margin-top: 1rem;">View Authentication &rarr;</a>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-bottom: 0.5rem;">🎪 Campus Events Management</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">
+            Explore hackathons, workshops, and seminars with live search, category filtering, and modal registrations.
+          </p>
+          <a href="events.html" class="btn btn-sm btn-outline" style="margin-top: 1rem;">Browse Events &rarr;</a>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-bottom: 0.5rem;">👥 Student Directory CRUD</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">
+            Full administrative records management: search, department filtering, pagination, and CSV data export.
+          </p>
+          <a href="admin.html" class="btn btn-sm btn-outline" style="margin-top: 1rem;">Open Admin Panel &rarr;</a>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-bottom: 0.5rem;">⚡ Modern JavaScript UI</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">
+            Responsive drawer navigation, interactive FAQ accordions, and persistent Dark/Light theme switching.
+          </p>
+          <a href="faq.html" class="btn btn-sm btn-outline" style="margin-top: 1rem;">Try Accordion FAQ &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to action footer banner -->
+    <section style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius); padding: 2.5rem 1.5rem; text-align: center; margin-bottom: 2rem;">
+      <h2 style="color: var(--primary-color); margin-bottom: 0.5rem;">Ready to experience StudentHub?</h2>
+      <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Create your profile now or test with pre-seeded demo accounts.</p>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="register.html" class="btn btn-primary">Create Free Account</a>
+        <a href="login.html" class="btn btn-secondary">Sign In with Demo</a>
+        <a href="index.php" class="btn btn-outline">Switch to PHP Version</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="footer">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1.5rem; text-align: left; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border-color); margin-bottom: 1rem;">
+      <div style="flex: 1; min-width: 250px;">
+        <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">StudentHub Portal</h4>
+        <p style="font-size: 0.85rem; color: var(--text-muted);">
+          Developed for ITUE203: Web Development Frameworks practical curriculum, Faculty of Technology &amp; Engineering (FTE / CSPIT / DEPSTAR), CHARUSAT.
+        </p>
+      </div>
+      <div style="flex: 1; min-width: 160px;">
+        <h4 style="margin-bottom: 0.5rem;">Quick Links</h4>
+        <ul style="list-style: none; font-size: 0.85rem; line-height: 2;">
+          <li><a href="events.html" style="color: inherit; text-decoration: none;">Campus Events</a></li>
+          <li><a href="faq.html" style="color: inherit; text-decoration: none;">Knowledge Base &amp; FAQ</a></li>
+          <li><a href="contact.html" style="color: inherit; text-decoration: none;">Support &amp; Helpdesk</a></li>
+          <li><a href="feedback.html" style="color: inherit; text-decoration: none;">Feedback Form</a></li>
+        </ul>
+      </div>
+      <div style="flex: 1; min-width: 200px;">
+        <h4 style="margin-bottom: 0.5rem;">Campus Location</h4>
+        <p style="font-size: 0.85rem; color: var(--text-muted);">
+          CHARUSAT Campus, 139, Changa, Dist. Anand, Gujarat 388421.<br>
+          Email: info@charusat.edu.in
+        </p>
+      </div>
+    </div>
+    <p>&copy; 2026-27 CHARUSAT. All rights reserved. Built with Semantic HTML5, CSS3, JavaScript ES6+, PHP &amp; MySQL.</p>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
